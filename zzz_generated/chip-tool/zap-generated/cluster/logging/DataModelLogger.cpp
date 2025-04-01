@@ -466,7 +466,7 @@ CHIP_ERROR DataModelLogger::LogValue(const char * label, size_t indent,
 }
 
 CHIP_ERROR DataModelLogger::LogValue(const char * label, size_t indent,
-                                     const chip::app::Clusters::Globals::Structs::PowerThresholdStruct::DecodableType & value)
+                                     const chip::app::Clusters::detail::Structs::PowerThresholdStruct::DecodableType & value)
 {
     DataModelLogger::LogString(label, indent, "{");
     {
@@ -19839,7 +19839,8 @@ CHIP_ERROR DataModelLogger::LogAttribute(const chip::app::ConcreteDataAttributeP
             return DataModelLogger::LogValue("ProtocolVersion", 1, value);
         }
         case MeterIdentification::Attributes::PowerThreshold::Id: {
-            chip::app::DataModel::Nullable<chip::app::Clusters::Globals::Structs::PowerThresholdStruct::DecodableType> value;
+            chip::app::DataModel::Nullable<chip::app::Clusters::MeterIdentification::Structs::PowerThresholdStruct::DecodableType>
+                value;
             ReturnErrorOnFailure(chip::app::DataModel::Decode(*data, value));
             return DataModelLogger::LogValue("PowerThreshold", 1, value);
         }

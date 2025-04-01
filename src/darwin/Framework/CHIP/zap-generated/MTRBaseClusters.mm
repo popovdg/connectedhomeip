@@ -104336,7 +104336,7 @@ public:
                                      completion:completion];
 }
 
-- (void)readAttributePowerThresholdWithCompletion:(void (^)(MTRDataTypePowerThresholdStruct * _Nullable value, NSError * _Nullable error))completion
+- (void)readAttributePowerThresholdWithCompletion:(void (^)(MTRMeterIdentificationClusterPowerThresholdStruct * _Nullable value, NSError * _Nullable error))completion
 {
     using TypeInfo = MeterIdentification::Attributes::PowerThreshold::TypeInfo;
     [self.device _readKnownAttributeWithEndpointID:self.endpointID
@@ -104349,7 +104349,7 @@ public:
 
 - (void)subscribeAttributePowerThresholdWithParams:(MTRSubscribeParams * _Nonnull)params
                            subscriptionEstablished:(MTRSubscriptionEstablishedHandler _Nullable)subscriptionEstablished
-                                     reportHandler:(void (^)(MTRDataTypePowerThresholdStruct * _Nullable value, NSError * _Nullable error))reportHandler
+                                     reportHandler:(void (^)(MTRMeterIdentificationClusterPowerThresholdStruct * _Nullable value, NSError * _Nullable error))reportHandler
 {
     using TypeInfo = MeterIdentification::Attributes::PowerThreshold::TypeInfo;
     [self.device _subscribeToKnownAttributeWithEndpointID:self.endpointID
@@ -104361,7 +104361,7 @@ public:
                                   subscriptionEstablished:subscriptionEstablished];
 }
 
-+ (void)readAttributePowerThresholdWithClusterStateCache:(MTRClusterStateCacheContainer *)clusterStateCacheContainer endpoint:(NSNumber *)endpoint queue:(dispatch_queue_t)queue completion:(void (^)(MTRDataTypePowerThresholdStruct * _Nullable value, NSError * _Nullable error))completion
++ (void)readAttributePowerThresholdWithClusterStateCache:(MTRClusterStateCacheContainer *)clusterStateCacheContainer endpoint:(NSNumber *)endpoint queue:(dispatch_queue_t)queue completion:(void (^)(MTRMeterIdentificationClusterPowerThresholdStruct * _Nullable value, NSError * _Nullable error))completion
 {
     using TypeInfo = MeterIdentification::Attributes::PowerThreshold::TypeInfo;
     [clusterStateCacheContainer

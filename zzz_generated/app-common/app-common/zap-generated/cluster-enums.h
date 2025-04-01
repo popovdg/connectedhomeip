@@ -124,6 +124,19 @@ enum class MeasurementUnitEnum : uint8_t
     kUnknownEnumValue = 8,
 };
 
+// Enum for PowerThresholdSourceEnum
+enum class PowerThresholdSourceEnum : uint8_t
+{
+    kContract  = 0x00,
+    kRegulator = 0x01,
+    kEquipment = 0x02,
+    // All received enum values that are not listed above will be mapped
+    // to kUnknownEnumValue. This is a helper enum value that should only
+    // be used by code to process how it handles receiving and unknown
+    // enum value. This specific should never be transmitted.
+    kUnknownEnumValue = 3,
+};
+
 // Enum for ProductIdentifierTypeEnum
 enum class ProductIdentifierTypeEnum : uint8_t
 {
@@ -416,19 +429,6 @@ enum class PositionTag : uint8_t
     // be used by code to process how it handles receiving and unknown
     // enum value. This specific should never be transmitted.
     kUnknownEnumValue = 7,
-};
-
-// Enum for PowerThresholdSourceEnum
-enum class PowerThresholdSourceEnum : uint8_t
-{
-    kContract  = 0x00,
-    kRegulator = 0x01,
-    kEquipment = 0x02,
-    // All received enum values that are not listed above will be mapped
-    // to kUnknownEnumValue. This is a helper enum value that should only
-    // be used by code to process how it handles receiving and unknown
-    // enum value. This specific should never be transmitted.
-    kUnknownEnumValue = 3,
 };
 
 // Enum for RelativePositionTag
@@ -5964,6 +5964,8 @@ enum class MeterTypeEnum : uint8_t
     // enum value. This specific should never be transmitted.
     kUnknownEnumValue = 3,
 };
+
+using PowerThresholdSourceEnum = Clusters::detail::PowerThresholdSourceEnum;
 
 // Bitmap for Feature
 enum class Feature : uint32_t

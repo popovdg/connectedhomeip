@@ -541,7 +541,7 @@ void ComplexArgumentParser::Finalize(chip::app::Clusters::detail::Structs::Opera
 }
 
 CHIP_ERROR ComplexArgumentParser::Setup(const char * label,
-                                        chip::app::Clusters::Globals::Structs::PowerThresholdStruct::Type & request,
+                                        chip::app::Clusters::detail::Structs::PowerThresholdStruct::Type & request,
                                         Json::Value & value)
 {
     VerifyOrReturnError(value.isObject(), CHIP_ERROR_INVALID_ARGUMENT);
@@ -576,7 +576,7 @@ CHIP_ERROR ComplexArgumentParser::Setup(const char * label,
     return ComplexArgumentParser::EnsureNoMembersRemaining(label, valueCopy);
 }
 
-void ComplexArgumentParser::Finalize(chip::app::Clusters::Globals::Structs::PowerThresholdStruct::Type & request)
+void ComplexArgumentParser::Finalize(chip::app::Clusters::detail::Structs::PowerThresholdStruct::Type & request)
 {
     ComplexArgumentParser::Finalize(request.powerThreshold);
     ComplexArgumentParser::Finalize(request.apparentPowerThreshold);

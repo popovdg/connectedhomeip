@@ -355,9 +355,9 @@ static auto __attribute__((unused)) EnsureKnownEnumValue(Globals::PositionTag va
     }
 }
 
-static auto __attribute__((unused)) EnsureKnownEnumValue(Globals::PowerThresholdSourceEnum val)
+static auto __attribute__((unused)) EnsureKnownEnumValue(detail::PowerThresholdSourceEnum val)
 {
-    using EnumType = Globals::PowerThresholdSourceEnum;
+    using EnumType = detail::PowerThresholdSourceEnum;
     switch (val)
     {
     case EnumType::kContract:
@@ -368,7 +368,6 @@ static auto __attribute__((unused)) EnsureKnownEnumValue(Globals::PowerThreshold
         return EnumType::kUnknownEnumValue;
     }
 }
-
 static auto __attribute__((unused)) EnsureKnownEnumValue(detail::ProductIdentifierTypeEnum val)
 {
     using EnumType = detail::ProductIdentifierTypeEnum;

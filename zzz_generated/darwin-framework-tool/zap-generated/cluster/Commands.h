@@ -164688,7 +164688,7 @@ public:
 
         dispatch_queue_t callbackQueue = dispatch_queue_create("com.chip.command", DISPATCH_QUEUE_SERIAL_WITH_AUTORELEASE_POOL);
         __auto_type * cluster = [[MTRBaseClusterMeterIdentification alloc] initWithDevice:device endpointID:@(endpointId) queue:callbackQueue];
-        [cluster readAttributePowerThresholdWithCompletion:^(MTRDataTypePowerThresholdStruct * _Nullable value, NSError * _Nullable error) {
+        [cluster readAttributePowerThresholdWithCompletion:^(MTRMeterIdentificationClusterPowerThresholdStruct * _Nullable value, NSError * _Nullable error) {
             NSLog(@"MeterIdentification.PowerThreshold response %@", [value description]);
             if (error == nil) {
                 RemoteDataModelLogger::LogAttributeAsJSON(@(endpointId), @(clusterId), @(attributeId), value);
@@ -164733,7 +164733,7 @@ public:
         }
         [cluster subscribeAttributePowerThresholdWithParams:params
             subscriptionEstablished:^() { mSubscriptionEstablished = YES; }
-            reportHandler:^(MTRDataTypePowerThresholdStruct * _Nullable value, NSError * _Nullable error) {
+            reportHandler:^(MTRMeterIdentificationClusterPowerThresholdStruct * _Nullable value, NSError * _Nullable error) {
                 NSLog(@"MeterIdentification.PowerThreshold response %@", [value description]);
                 if (error == nil) {
                     RemoteDataModelLogger::LogAttributeAsJSON(@(endpointId), @(clusterId), @(attributeId), value);
